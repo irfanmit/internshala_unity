@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Select from 'react-select'; // Import the Select component
 import '../App.css';
 
@@ -121,6 +122,9 @@ function HomeScreen() {
         <div className="search-results">
           {searchResults.map((result) => (
             <div key={result.objectID} className="result-item">
+            <Link to={`/post/${result.objectID}`}>
+          <button>Details</button>
+        </Link>
               <p>Title: {result.title}</p>
               <p>URL: <a href={result.url} target="_blank" rel="noopener noreferrer">{result.url}</a></p>
               <p>Created At: {result.created_at}</p>
